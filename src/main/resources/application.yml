@@ -1,0 +1,10 @@
+#启用配置文件选择
+spring:
+  profiles:
+    active: dev
+
+# 通用配置
+server:
+  port: 8080
+
+
