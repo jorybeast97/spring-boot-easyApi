@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--&lt;!&ndash; 引入属性文件&ndash;&gt;-->
+    <!--<properties resource="dataSource.properties"/>-->
+    <!--数据库驱动 引入的本地的驱动包-->
+    <classPathEntry location="C:\Users\asus\.m2\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar"/>
+
+    <context id="spring-boot-easyApi" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <!--自动实现Serializable接口-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <!-- 去除自动生成的注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/test"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="com.magnolia.springbooteasyapi.model" targetProject="./src/main/java">
+
+        </javaModelGenerator>
+
+
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources">
+        </sqlMapGenerator>
+
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.magnolia.springbooteasyapi.mapper" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!--<javaTypeResolver>-->
+        <!--<property name="forceBigDecimals" value="false"></property>-->
+        <!--</javaTypeResolver>-->
+
+        <!--生成对应表及类名-->
+        <!--&lt;!&ndash; 基础信息表 &ndash;&gt; 暂时不用-->
+        <!--<table tableName="base_info" domainObjectName="BaseInfo"-->
+        <!--enableCountByExample="false"-->
+        <!--enableUpdateByExample="false"-->
+        <!--enableDeleteByExample="false"-->
+        <!--enableSelectByExample="false"-->
+        <!--selectByExampleQueryId="false">-->
+        <!--</table>-->
+
+        <!--<table catalog="DataName" tableName="TableName" domainObjectName="ModelName" >-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>

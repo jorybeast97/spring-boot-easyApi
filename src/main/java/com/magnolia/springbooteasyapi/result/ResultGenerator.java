@@ -70,12 +70,16 @@ public class ResultGenerator {
                 .setCode(ResultCode.UNAUTHORIZED)
                 .setMessage(unauthorizedMessage);
     }
-    
+
+    /**
+     * 服务器内部错误
+     * @param errorMessage
+     * @return
+     */
     public static CommonResult getServerErrorResult(String errorMessage) {
         return new CommonResult()
                 .setCode(ResultCode.INTERNAL_SERVER_ERROR)
                 .setMessage(errorMessage);
     }
-
 
 }
