@@ -1,6 +1,8 @@
 package com.magnolia.springbooteasyapi;
 
 
+import com.magnolia.springbooteasyapi.core.ProjectConstant;
+import freemarker.template.TemplateExceptionHandler;
 import org.junit.platform.engine.ConfigurationParameters;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -16,12 +18,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * 自动生成器
+ * 如果异常自动回滚
  */
-@Transactional
-@Rollback
+@Transactional(rollbackFor = Exception.class)
 public class EasyApiGenerator {
 
     public static void main(String[] args) {
@@ -37,7 +40,7 @@ public class EasyApiGenerator {
      * @throws SQLException
      * @throws InterruptedException
      */
-    public void createMapperAndModel()
+    public static void createMapperAndModel()
             throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {
         List<String> warnings = new LinkedList<>();
         boolean overWrite = true;
@@ -49,7 +52,33 @@ public class EasyApiGenerator {
         myBatisGenerator.generate(null);
     }
 
-    
+    /**
+     * 创建Service
+     */
+    public static void createService() throws Exception {
+
+    }
+
+    /**
+     * 创建controller
+     */
+    public static void createController() throws Exception {
+
+    }
+
+    /***
+     * 获取Freemarker的模板Configuration
+     * @return
+     * @throws IOException
+     */
+    public freemarker.template.Configuration getConfiguration() throws IOException {
+        freemarker.template.Configuration configuration =
+                new freemarker.template.Configuration(freemarker.template.Configuration.VERSION_2_3_0);
+        configuration.setDirectoryForTemplateLoading(new File(ProjectConstant.TEMPLATE_FILE_PATH));
+        configuration.setEncoding(Locale.CHINA, "UTF-8");
+        configuration.setTemplateExceptionHandler(TemplateExceptionHandler.IGNORE_HANDLER);
+        return configuration;
+    }
 
 
 

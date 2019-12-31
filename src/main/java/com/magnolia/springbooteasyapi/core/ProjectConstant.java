@@ -32,6 +32,8 @@ public final class ProjectConstant {
      */
     public static final String CONTROLLER_PACKAGE = PACKAGE_URL + ".controller";
 
+    public static final String TEMPLATE_FILE_PATH = PACKAGE_URL+"";
+
     //>>>>>>>>>>>>>----------------------------------------------------------------------
 
     /**
