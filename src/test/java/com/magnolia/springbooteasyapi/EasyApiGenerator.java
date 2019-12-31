@@ -29,6 +29,7 @@ public class EasyApiGenerator {
     }
 
     /**
+     * ------>根据Mybatis逆向工程创建，详细内容请参考Mybatis逆向工程配置
      * 根据数据库创建Model和Mapper
      * @throws IOException
      * @throws XMLParserException
