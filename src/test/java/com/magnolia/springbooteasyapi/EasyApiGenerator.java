@@ -16,9 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * 自动生成器
@@ -56,7 +54,8 @@ public class EasyApiGenerator {
      * 创建Service
      */
     public static void createService() throws Exception {
-
+        freemarker.template.Configuration freeMarkerConfiguration = getConfiguration();
+        Map<String, Object> configurationMap = new HashMap<>();
     }
 
     /**
@@ -71,7 +70,7 @@ public class EasyApiGenerator {
      * @return
      * @throws IOException
      */
-    public freemarker.template.Configuration getConfiguration() throws IOException {
+    public static freemarker.template.Configuration getConfiguration() throws IOException {
         freemarker.template.Configuration configuration =
                 new freemarker.template.Configuration(freemarker.template.Configuration.VERSION_2_3_0);
         configuration.setDirectoryForTemplateLoading(new File(ProjectConstant.TEMPLATE_FILE_PATH));
