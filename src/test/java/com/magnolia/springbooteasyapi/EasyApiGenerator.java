@@ -52,10 +52,12 @@ public class EasyApiGenerator {
 
     /**
      * 创建Service
+     * @date 2020.1.5
      */
     public static void createService() throws Exception {
         freemarker.template.Configuration freeMarkerConfiguration = getConfiguration();
         Map<String, Object> configurationMap = new HashMap<>();
+        configurationMap.put("date", ProjectConstant.DATE);
     }
 
     /**
